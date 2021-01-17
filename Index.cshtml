@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Demo.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+<center>
+    <h2>Consume Web API in MVC, To Search Records
+    </h2>
+    <h3>From Users List </h3><hr/>
+
+</center>
+@using(Html.BeginForm("Index","UserView",FormMethod.Get))
+{
+    <span>Enter User Email :</span><input type="text" name="search" placeholder="Enter User Email"/>
+    <input type="submit" value="Search" name="submit" />
+}
+@{
+    Html.RenderPartial("Headings");
+}
+
+<table class="table" border="1" width = "80%">
+   
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td width= "16%">
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td width= "16%">
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td width= "16%">
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td width= "16%">
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td width= "16%">
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+
+        </tr>
+    }
+
+</table>
